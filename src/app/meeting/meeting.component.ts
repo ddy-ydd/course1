@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-meeting',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './meeting.component.css'
 })
 export class MeetingComponent {
-
+  topic = new FormControl('');
+  num = new FormControl('')
 }
