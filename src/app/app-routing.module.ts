@@ -5,7 +5,7 @@ import { FormComponent } from './form/form.component';
 import { MeetingComponent } from './meeting/meeting.component';
 
 const routes: Routes = [
-  {path:"", component:DashboardComponent},
+  {path:"", redirectTo:'/dashboard', pathMatch:'full'},
   {path:"dashboard", component:DashboardComponent, children:
   [
     {path:"form", component:FormComponent, data: {title:"Client Form"}},

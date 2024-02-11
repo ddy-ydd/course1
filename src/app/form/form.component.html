@@ -6,23 +6,24 @@
 <body>
     <div>
         <label for="name">Name </label><br>
-        <input id="name" type="text" [formControl]="name">
+        <input id="name" type="text" [formControl]="name" placeholder="Enter Name" autocomplete="off">
     </div><br>
     <div>
         <label for="email">Email </label><br>
-        <input id="email" type="text" [formControl]="email">
+        <input id="email" type="text" [formControl]="email" placeholder="Enter Email" autocomplete="off">
     </div><br>
     <div>
         <label for="address">Address </label><br>
-        <input id="address" type="text" [formControl]="address">
+        <input id="address" type="text" [formControl]="address" placeholder="Enter Address" autocomplete="off">
     </div><br>
     <div>
         <label for="password">Password </label><br>
-        <input id="password" type="text" [formControl]="password">
+        <input id="password" type="text" [formControl]="password" placeholder="Enter Password" autocomplete="off">
     </div><br>
     <div>
         <label for="repeat">Repeat Password </label><br>
-        <input id="repeat" type="text" [formControl]="repeat">
-    </div>
+        <input id="repeat" type="text" [formControl]="repeat" placeholder="Repeat Password" autocomplete="off">
+    </div><br>
+    <button (click) = "onClick(name, email, address, password, repeat)" type="button">Register</button>
 </body>
 </html>
