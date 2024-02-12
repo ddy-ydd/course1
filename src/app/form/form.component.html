@@ -4,7 +4,7 @@
     <title>Client Form</title>
 </head>
 <body>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
         <div>
             <label for="name">Name </label><br>
             <input id="name" type="text" formControlName="name" placeholder="Enter Name" autocomplete="off">

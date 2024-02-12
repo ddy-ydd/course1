@@ -1,6 +1,6 @@
 import { Component, ContentChild, OnInit } from '@angular/core';
 import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
-import { FormControl, ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -8,27 +8,43 @@ import { Validators } from '@angular/forms';
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })
-export class FormComponent{
-  registerForm = this.formBuilder.group({
-    name: ['', Validators.required],
-    email: ['', Validators.required],
-    address: ['', Validators.required],
-    password: ['', Validators.required],
-    repeat: ['', Validators.required]
-  });
-
+export class FormComponent implements OnInit {
+  clientForm: FormGroup;
   constructor(private formBuilder:FormBuilder){}
+
+  ngOnInit() {
+    this.clientForm = this.formBuilder.group({
+      name: new FormControl(),
+      email: new FormControl(),
+      address: new FormControl(),
+      password: new FormControl(),
+      repeat: new FormControl(),
+    });   
+  }
 
   onSubmit()
   {
-    if (this.registerForm.errors == null)
+    if (this.clientForm.errors == null)
     {
       console.warn('Registered');
-      this.registerForm.reset();
+      this.clientForm.reset();
     }
     else
     {
-      console.log(this.registerForm.errors)
+      console.log(this.clientForm.errors)
     }
   }
+
+  compareValues(param1:any, param2:any): void
+  {
+    if (param1 != param2)
+    {
+      param2.setErrors('no match');
+    }
+    else
+    {
+      param2.setErrors(null);
+    }
+  }
+
 }
