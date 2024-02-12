@@ -8,6 +8,7 @@ const routes: Routes = [
   {path:"", redirectTo:'/dashboard', pathMatch:'full'},
   {path:"dashboard", component:DashboardComponent, children:
   [
+    {path:"dashboard", redirectTo:'/dashboard', pathMatch:'full'},
     {path:"form", component:FormComponent, data: {title:"Client Form"}},
     {path:"meeting", component:MeetingComponent, data: {title:"Meetings"}}
   ]}

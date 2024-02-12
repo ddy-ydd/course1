@@ -9,24 +9,24 @@ import { FormBuilder } from '@angular/forms';
   styleUrl: './meeting.component.css'
 })
 export class MeetingComponent {
-  topic = new FormControl('')
-  num = new FormControl('')
-  date = new FormControl('')
+  meetingForm = this.formBuilder.group({
+    topic: ['', Validators.required],
+    num: ['', Validators.required],
+    date: ['', Validators.required],
+  });
 
   constructor(private formBuilder:FormBuilder){}
 
   onSubmit()
   {
-    if (this.topic.errors == null && this.num.errors == null && this.date.errors == null)
+    if (this.meetingForm.errors == null)
     {
       console.warn('Registered');
-      this.topic.reset();
-      this.num.reset();
-      this.date.reset();
+      this.meetingForm.reset()
     }
     else
     {
-      console.warn('errors: topic - ', this.topic.errors, ', num - ', this.num.errors, ', date - ', this.date.errors)
+      console.warn('errors: ', this.meetingForm.errors)
     }
   }
 }
