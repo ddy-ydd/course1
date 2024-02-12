@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { DateAdapter } from '@angular/material/core'; 
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
-import { DatepickerModule } from 'ng-bootstrap';
 import { Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-meeting',
@@ -19,7 +13,7 @@ export class MeetingComponent {
   num = new FormControl('')
   date = new FormControl('')
 
-  constructor(){}
+  constructor(private formBuilder:FormBuilder){}
 
   onSubmit()
   {

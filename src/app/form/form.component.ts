@@ -21,8 +21,14 @@ export class FormComponent{
 
   onSubmit()
   {
-    console.log(this.registerForm.errors)
-    console.warn('Registered');
-    this.registerForm.reset();
+    if (this.registerForm.errors == null)
+    {
+      console.warn('Registered');
+      this.registerForm.reset();
+    }
+    else
+    {
+      console.log(this.registerForm.errors)
+    }
   }
 }
