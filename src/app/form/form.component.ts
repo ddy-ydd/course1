@@ -1,28 +1,28 @@
 import { Component, ContentChild, OnInit } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
+import { FormControl, ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrl: './form.component.css',
+  styleUrl: './form.component.css'
 })
-export class FormComponent implements OnInit{
-  name = new FormControl('');
-  email = new FormControl('');
-  address = new FormControl('');
-  password = new FormControl('');
-  repeat = new FormControl('');
+export class FormComponent{
+  registerForm = this.formBuilder.group({
+    name: ['', Validators.required],
+    email: ['', Validators.required],
+    address: ['', Validators.required],
+    password: ['', Validators.required],
+    repeat: ['', Validators.required]
+  });
 
-  onClick(name:any, email:any, address:any, password:any, repeat:any)
+  constructor(private formBuilder:FormBuilder){}
+
+  onSubmit()
   {
-    if (name == null) console.log("This field is required")
-    else this.name=name
-    if (email == null) console.log("This field is required")
-    this.email=email
-    this.address=address
-    this.password=password
+    console.log(this.registerForm.errors)
+    console.warn('Registered');
+    this.registerForm.reset();
   }
-
-  ngOnInit() {
-  } 
 }

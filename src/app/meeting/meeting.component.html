@@ -9,11 +9,16 @@
 <body>
     <div>
         <label for="topic">Meeting Topic </label><br>
-        <input id="topic" type="text" [formControl]="topic">
+        <input id="topic" type="text" [formControl]="topic" placeholder="Enter Meeting Topic" autocomplete="off">
     </div><br>
     <div>
         <label for="num">Number of People </label><br>
-        <input id="num" type="text" [formControl]="num">
+        <input id="num" type="text" [formControl]="num" placeholder="Enter Number of People" autocomplete="off">
     </div><br>
+    <div>
+        <label for="date">Date </label><br>
+        <input type="datetime-local">
+    </div><br>
+    <button class="button" type="submit">Register</button>
 </body>
 </html>
